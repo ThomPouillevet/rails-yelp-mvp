@@ -1,6 +1,10 @@
 
-<h1>Add a review to <%= @restaurant.name %></h1>
+<h1>Add a review to <%= @review.restaurant.name %></h1>
+<%= simple_form_for [@review.restaurant, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating %>
 
-<%= render 'form', review: @review %>
+  <%= f.submit "add a review", class: "btn btn-primary" %>
+<% end %>
 
 <%= link_to 'Back', restaurant_path(@restaurant) %>
